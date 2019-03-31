@@ -18,7 +18,7 @@ const Personal = ({ personal }) => {
 
 		const renderRow = (row, index) => (
 			<tr key={index}>
-				<td>
+				<td className="profile-label">
 					<b>{row.label}:</b>
 				</td>
 				<td>
@@ -28,12 +28,12 @@ const Personal = ({ personal }) => {
 		)
 
     return (
-        <div>
+        <section>
             <h1>{name}</h1>
 						<table>
 							{rows.map(renderRow)}
 						</table>
-				</div>
+				</section>
     )
 };
 

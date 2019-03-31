@@ -19,7 +19,7 @@ const renderCompany = (company, index) => <Company key={index} company={company}
 const Company = ({ company }) => (
     <>
         <Timed time={company.timespan}>
-            <p>{company.company}</p>
+            <p><strong>{company.company}</strong></p>
             <p>{company.position}</p>
         </Timed>
         <List list={company.info} />

@@ -4,9 +4,7 @@ import Section from './Utils/Section';
 import Skills from './Skills';
 
 const Link = ({ url }) => (
-    <a href={url}>
-        {url.replace(/https?:\/\//, '' )}
-    </a>
+    <a href={url}>{url.replace(/https?:\/\//, '' )}</a>
 )
 
 const Programming = ({ programming }) => {

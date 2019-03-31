@@ -1,14 +1,27 @@
 import React from 'react';
 
-const renderItem = (item, index) => <li key={index}>{item}</li>;
 
+const List = ({ list, className }) => {
+    const renderItem = (item, index) => {
+        const isBold = item.startsWith('*');
+        item = item.replace('*', '');
+        return (
+        <li key={index}>
+            {isBold ? <strong>{item}</strong> : item}
+        </li>
+        )
+    }
 
-const List = ({ list }) => {
     return (
-        <ul>
+        <ul className={className}>
             {list.map(renderItem)}
         </ul>
     )
+}
+
+List.defaultProps = {
+    list: [],
+    className: '',
 }
 
 export default List;
