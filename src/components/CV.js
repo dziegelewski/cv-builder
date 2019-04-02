@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { styled, GlobalStyle } from './Styles';
 import Personal from './Personal';
 import Programming from './Programming';
 import Experience from './Experience';
@@ -8,18 +9,23 @@ import Clause from './Clause';
 
 import JustListSection from './Utils/JustListSection';
 
-import './main.scss';
+const MainStyled = styled.main`
+  margin: 0 auto;
+`;
 
-const CV = ({ data }) => (
-    <main>
-        <Personal personal={data.personal} />
+const CV = ({ data, photo }) => (
+  <>
+    <GlobalStyle />
+    <MainStyled>
+        <Personal personal={data.personal} photo={photo} />
         <Programming programming={data.programming} />
         <Experience experience={data.experience} />
         <JustListSection title="Languages" list={data.languages} />
         <Education education={data.education} />
         <JustListSection title="Interests" list={data.interests} />
         <Clause />
-    </main>
+    </MainStyled>
+  </>
 )
 
 export default CV;

@@ -1,30 +1,33 @@
 import React from 'react';
 import { PDFExport } from '@progress/kendo-react-pdf';
+import { styled, colors, fontSize } from './Styles';
 
-const backgroundStyle = {
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  background: '#525659',
-  padding: 20,
-}
+const PDFBackground = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: ${colors.chromePDFBackground};
+  padding: 20px;
+`;
 
-const cardStyle = {
-  height: 792,
-  width: 612,
-  padding: 'none',
-  backgroundColor: 'white',
-  boxShadow: '5px 5px 5px black',
-  margin: 'auto',
-  overflowX: 'hidden',
-  overflowY: 'hidden'
-}
+const A4Page = styled.div`
+  height: 792px;
+  width: 612px;
+  padding: none;
+  background-color: ${colors.paperWhite};
+  box-shadow: 5px 5px 5px ${colors.shadow};
+  margin: auto;
+  overflow-x: hidden;
+  overflow-y: hidden;
+`;
 
-const buttonStyle = {
-  borderColor: 'black',
-  fontSize: '12px',
-  margin: 20,
-};
+const DownloadButton = styled.button`
+  border: none;
+  font-size: ${fontSize.medium};
+  background: ${colors.paperWhite}
+  margin: 20px;
+`;
+
 
 class DownloadablePDF extends React.Component {
 
@@ -39,7 +42,7 @@ class DownloadablePDF extends React.Component {
     } = this.props;
 
     return (
-      <div style={backgroundStyle}>
+      <PDFBackground>
         <PDFExport
           paperSize={'A4'}
           fileName={`${title}.pdf`}
@@ -48,19 +51,15 @@ class DownloadablePDF extends React.Component {
           keywords=""
           keepTogether={keepTogether}
           ref={(r) => this.document = r}>
-            <div style={cardStyle}
-            >
+            <A4Page>
               {this.props.children}
-            </div>
+            </A4Page>
         </PDFExport>
       
-        <button
-          style={buttonStyle}
-          onClick={this.exportPDF}
-        >
+        <DownloadButton onClick={this.exportPDF}>
           Download
-        </button>
-      </div>
+        </DownloadButton>
+      </PDFBackground>
     );
   }
   

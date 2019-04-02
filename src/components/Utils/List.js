@@ -1,27 +1,28 @@
 import React from 'react';
 
+import { Ul } from '../Styles';
+import BoldReplacer from './BoldReplacer';
 
-const List = ({ list, className }) => {
-    const renderItem = (item, index) => {
-        const isBold = item.startsWith('*');
-        item = item.replace('*', '');
-        return (
-        <li key={index}>
-            {isBold ? <strong>{item}</strong> : item}
-        </li>
-        )
-    }
 
+const List = ({ list, ...props }) => {
+  const renderItem = (item, index) => {
     return (
-        <ul className={className}>
-            {list.map(renderItem)}
-        </ul>
+      <li key={index}>
+        <BoldReplacer>{item}</BoldReplacer>
+      </li>
     )
+  }
+    
+  return (
+    <Ul {...props}>
+      {list.map(renderItem)}
+    </Ul>
+  );
 }
-
+  
 List.defaultProps = {
-    list: [],
-    className: '',
+  list: [],
+  raw: false,
 }
 
 export default List;

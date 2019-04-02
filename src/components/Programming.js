@@ -1,28 +1,33 @@
 import React from 'react';
 
-import Section from './Utils/Section';
 import Skills from './Skills';
+import Section from './Utils/Section';
+import LinkBig from './Utils/LinkBig';
+import SlashBig from './Utils/SlashBig';
+import { styled } from './Styles';
 
-const Link = ({ url }) => (
-    <a href={url}>{url.replace(/https?:\/\//, '' )}</a>
-)
+const Links = styled.div`
+  margin: 15px 0;
+`;
 
 const Programming = ({ programming }) => {
-    const {
-        homePage,
-        githubPage,
-        skills
-    } = programming;
-
-    return (
-        <Section title="Programming">
-            <h3>
-                <Link url={homePage} /> / <Link url={githubPage} />
-            </h3>
-            <Skills data={skills} />
-        </Section>
-    )
-
-}
+  const {
+    homePage,
+    githubPage,
+    skills
+  } = programming;
+  
+  return (
+    <Section title="Programming">
+      <Links>
+        <LinkBig url={homePage} />
+        <SlashBig />
+        <LinkBig url={githubPage} />
+      </Links>
+      <Skills data={skills} />
+    </Section>
+  )
+};
 
 export default Programming;
+  

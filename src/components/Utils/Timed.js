@@ -1,19 +1,22 @@
 import React from 'react';
+import { styled, offset } from '../Styles';
 
-const timeStyle = {
-    'width': 50,
-    paddingRight: 10
-}
+const TimeCell = styled.td`
+  width: ${offset.leftLabel}px;
+  box-sizing: border-box;
+  padding-right: 10px;
+  border: none;
+`;
 
 const Timed = ({ time, children }) => {
-    return (
-        <table>
-            <tr>
-                <td style={timeStyle}>{time}</td>
-                <td>{children}</td>
-            </tr>
-        </table>
-    )
+  return (
+    <table>
+        <tr>
+          <TimeCell>{time}</TimeCell>
+          <td>{children}</td>
+        </tr>
+    </table>
+  )
 }
 
 export default Timed;

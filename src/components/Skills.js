@@ -1,34 +1,50 @@
 import React from 'react';
 
 import List from './Utils/List';
-import './styles/skills.scss';
+import { styled, colors, light } from './Styles';
 
+
+const SkillsTable = styled.div`
+  margin-top: 10px;
+  margin-bottom: -10px;
+  display: flex;
+  border-bottom: 1px solid ${colors.light};
+`;
+
+const SkillsLevel = styled.div`
+  flex-basis: 33.3%;
+`;
+
+const LevelHeader = styled.div`
+  ${light()};
+  border-bottom: 1px solid ${colors.light};
+`;
+
+const LevelContent = styled.div`
+  padding-right: 10px;
+`;
 
 const Skills = ({ data }) => {
-
-    const {
-        good,
-        medium,
-        basic
-    } = data;
+    const skillLevels = [
+      { label: 'Advanced', list: data.advanced },
+      { label: 'Good', list: data.good },
+      { label: 'Basic', list: data.basic },
+    ]
 
     return (
-        <div className="skills">
-            <div className="skills--row skills--header">
-                <div>Advanced</div>
-                <div>Good</div>
-                <div>Basic</div>
-            </div>
-            <div className="skills--row">
-                <div>
-                    <List list={good} className="bare" /></div>
-                <div>
-                    <List list={medium} className="bare" /></div>
-                <div>
-                    <List list={basic} className="bare" /></div>
-            </div>
-        </div>
+        <SkillsTable>
+          {skillLevels.map(renderSkillsLevel)}
+        </SkillsTable>
     )
 }
+
+const renderSkillsLevel = ({ label, list }) => (
+  <SkillsLevel>
+    <LevelHeader>{label}</LevelHeader>
+    <LevelContent>
+      <List raw list={list} />
+    </LevelContent>
+  </SkillsLevel>
+)
 
 export default Skills;

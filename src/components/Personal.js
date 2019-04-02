@@ -1,6 +1,20 @@
 import React from 'react';
+import Section from './Utils/Section';
+import { styled, offset, enlight } from './Styles';
 
-const Personal = ({ personal }) => {
+const PersonalLabel = styled.td`
+	${enlight()};
+	width: ${offset.leftLabel * 1.5}px;
+`;
+
+const Photo = styled.img`
+	height: 100%;
+	position: absolute;
+	right: ${offset.pageSide}px;
+	bottom: 0;
+`;
+
+const Personal = ({ personal, photo }) => {
     const {
 			name,
 			birthDate,
@@ -18,9 +32,9 @@ const Personal = ({ personal }) => {
 
 		const renderRow = (row, index) => (
 			<tr key={index}>
-				<td className="profile-label">
-					<b>{row.label}:</b>
-				</td>
+				<PersonalLabel>
+					{row.label}:
+				</PersonalLabel>
 				<td>
 					{row.value}
 				</td>
@@ -28,12 +42,16 @@ const Personal = ({ personal }) => {
 		)
 
     return (
-        <section>
-            <h1>{name}</h1>
+        <Section mainTitle={name}>
 						<table>
-							{rows.map(renderRow)}
+							<tbody>
+								{rows.map(renderRow)}
+							</tbody>
 						</table>
-				</section>
+						{photo && (
+							<Photo src={photo} />
+						)}
+				</Section>
     )
 };
 
