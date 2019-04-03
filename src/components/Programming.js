@@ -7,7 +7,7 @@ import SlashBig from './Utils/SlashBig';
 import { styled } from './Styles';
 
 const Links = styled.div`
-  margin: 15px 0;
+  margin: 10px 0;
 `;
 
 const Programming = ({ programming }) => {

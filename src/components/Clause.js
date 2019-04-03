@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { styled, fontSize, colors } from './Styles';
+import CVContext from './CVContext';
 import Section from './Utils/Section';
 
 
@@ -10,19 +11,20 @@ const ClauseText = styled.p`
   margin: 10px 0;
 `;
 
-const Clause = ({ companyName, refNumber }) => (
-  <Section>
-    <ClauseText>
-        I hereby consent to my personal data being processed by {companyName}
-        for the purpose of considering my application
-        for the vacancy advertised under reference number {refNumber}
-    </ClauseText>
-  </Section>
-);
+const Clause = () => {
+  const { enableClause } = useContext(CVContext);
 
-Clause.defaultProps = {
-  companyName: 'COMPANY NAME',
-  refNumber: 'REFERENCE NUMBER'
-}
+  if (!enableClause) {
+    return null;
+  }
+
+  return (
+    <Section>
+      <ClauseText>
+        I hereby give consent for my personal data included in my application to be processed for the purposes of the recruitment process under the Personal Data Protection Act as of 29 August 1997, consolidated text: Journal of Laws 2002, item 1182 as amended.
+      </ClauseText>
+    </Section>
+  );
+};
 
 export default Clause;

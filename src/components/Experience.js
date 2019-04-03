@@ -1,28 +1,41 @@
 import React from 'react';
 
+import Project from './Project';
 import Section from './Utils/Section';
 import Timed from './Utils/Timed';
 import List from './Utils/List';
-import BoldReplacer from './Utils/BoldReplacer';
+import ComponentList from './Utils/ComponentList';
+import { Nested, H3 } from './Styles';
 
-const Experience = ({ experience }) => {
-  return (
-    <Section title="Experience">
-      {experience.map(renderCompany)}
-    </Section>
-  )
-}
 
-const renderCompany = (company, index) => <Company key={index} company={company} />
+const Experience = ({ experience }) => (
+  <Section title="Experience">
+    <ComponentList list={experience} Component={Job} />
+  </Section>
+);
 
-const Company = ({ company }) => (
+const Job = ({ value: job }) => (
   <>
-    <Timed time={company.timespan}>
-        <p><BoldReplacer>{company.company}</BoldReplacer></p>
-        <p>{company.position}</p>
+    <Timed time={job.timespan}>
+        <Company value={job.company} />
+        <p><strong>{job.position}</strong></p>
     </Timed>
-    <List list={company.info} />
+    {job.info && (
+      Array.isArray(job.info)
+        ? <List list={job.info} />
+        : <Nested>{job.info}</Nested>
+    )}
+    {job.projects && (
+      <ComponentList list={job.projects} Component={Project} />
+    )}
   </>
-)
+);
+
+const Company = ({ value: company }) => (
+  <p>
+    <H3 inline>{company.name}</H3> ({company.description}), {company.origin}
+  </p>
+);
+
 
 export default Experience;

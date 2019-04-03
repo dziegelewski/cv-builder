@@ -3,26 +3,20 @@ import React from 'react';
 import { Ul } from '../Styles';
 import BoldReplacer from './BoldReplacer';
 
+const defaultRenderer = (item, index) => {
+  return (
+    <li key={index}>
+      <BoldReplacer>{item}</BoldReplacer>
+    </li>
+  )
+}
 
-const List = ({ list, ...props }) => {
-  const renderItem = (item, index) => {
-    return (
-      <li key={index}>
-        <BoldReplacer>{item}</BoldReplacer>
-      </li>
-    )
-  }
-    
+const List = ({ list = [], renderer = defaultRenderer, ...props }) => {
   return (
     <Ul {...props}>
-      {list.map(renderItem)}
+      {list.map(renderer)}
     </Ul>
   );
-}
-  
-List.defaultProps = {
-  list: [],
-  raw: false,
 }
 
 export default List;

@@ -1,88 +1,99 @@
-import styledComponents, { createGlobalStyle } from 'styled-components';
+import styledComponents, { createGlobalStyle, css } from 'styled-components';
 
+import { colors, fontSize, offset } from './variables';
 import fontFace from './fontFace';
+
+export { colors, fontSize, offset } from './variables';
 
 export const styled = styledComponents; 
 
-export const colors = {
-  text: '#2A2A2A',
-  light: '#606060',
-  highlight: '#000000',
-  background: '#EEEEEE',
+export const superhighlight = () => css`
+  font-weight: bold;
+  color: ${colors.super};
+  background: transparent;
+`;
 
-  shadow: '#000000',
-  paperWhite: '#FFFFFF',
-  chromePDFBackground: '#525659',
-};
+export const highlight = () => css`
+  font-weight: bold;
+  color: ${colors.normal};
+`;
 
-export const fontSize = {
-  small: '10px',
-  medium: '14px',
-  big: '18px',
-}
-
-export const offset = {
-  pageSide: 50,
-  leftLabel: 60,
-};
-
-export const light = () => `
+export const light = () => css`
   font-weight: bold;
   color: ${colors.light};
 `;
 
-export const highlight = () => `
-  font-weight: bold;
-  color: ${colors.highlight};
-`;
-
-export const enlight = () => `
-  font-weight: bold;
-  color: ${colors.text};
+export const inlineable = () => css`
+  ${props => props.inline && `
+    display: inline-block;
+  `}
 `;
 
 export const GlobalStyle = createGlobalStyle`
   ${fontFace};
 
   html {
-    font-size: ${fontSize.small};
+    font-size: ${fontSize.normal};
   }
 
   body {
     margin: 0;
     padding: 0;
-    color: ${colors.text};
-  }
-
-  p,
-  td
-  {
-    margin: 0;
+    color: ${colors.normal};
     line-height: 150%;
   }
 
+  p {
+    margin: 0;
+  }
+
   strong {
-    ${enlight()};
+    ${highlight()};
+  }
+
+  mark {
+    ${superhighlight()}
   }
 `;
 
 export const H1 = styled.h1`
-  ${enlight()};
-  font-size: ${fontSize.big};
+  ${highlight()};
+  font-size: ${fontSize.huge};
 `;
 
 export const H2 = styled.h2`
-  ${enlight()};
-  font-size: ${fontSize.medium};
+  ${highlight()};
+  font-size: ${fontSize.big};
   margin: 0 0 10px;
 `;
 
+export const H3 = styled.h3`
+  ${highlight()};
+  ${inlineable()};
+  font-size: ${fontSize.normal};
+  margin: 0;
+`
+
+export const H4 = styled.h4`
+  ${light()};
+  ${inlineable()};
+  font-size: ${fontSize.normal};
+  margin: 0;
+`
+
 export const Ul = styled.ul`
-  line-height: 150%;
   padding-left: ${offset.leftLabel}px;
 
   ${props => props.raw && `
     list-style: none;
     padding-left: 0;
   `}
+`;
+
+export const Row = styled.div`
+  display: flex;
+`;
+
+export const Nested = styled.p`
+  padding-left: ${offset.leftLabel}px;
 `;

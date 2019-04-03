@@ -5,10 +5,9 @@ import { styled, colors, light } from './Styles';
 
 
 const SkillsTable = styled.div`
-  margin-top: 10px;
+  margin-top: 20px;
   margin-bottom: -10px;
   display: flex;
-  border-bottom: 1px solid ${colors.light};
 `;
 
 const SkillsLevel = styled.div`

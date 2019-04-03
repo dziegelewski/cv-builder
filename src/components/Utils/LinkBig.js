@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { styled, fontSize, enlight } from '../Styles';
+import { styled, fontSize, highlight } from '../Styles';
 
 const AStyled = styled.a`
-  ${enlight()};
-  font-size: ${fontSize.big};
+  ${highlight()};
+  font-size: ${fontSize.huge};
   text-decoration: none;
   display: inline-block;
 `;

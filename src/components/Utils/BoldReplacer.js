@@ -15,7 +15,7 @@ const BoldReplacer = ({ children }) => {
     return <strong>{text.substr(2)}</strong>
   }
   else {
-    const wrappedWithSign = /\*(.*)\*/;
+    const wrappedWithSign = /\*([\w\s\.,-]*)\*/g;
     const wrapWithBoldInstead = (match, content) => `<strong>${content}</strong>`;
 
     return htmlToReact(

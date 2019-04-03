@@ -9,12 +9,16 @@ const SectionStyled = styled.section`
     &:nth-child(even) {
         background: ${colors.background};
     }
+
+    ${props => props.broad && `
+        padding-bottom: 20px;
+    `}
 `;
 
 
-const Section = ({ mainTitle, title, children }) => {
+const Section = ({ mainTitle, title, children, ...props }) => {
     return (
-        <SectionStyled>
+        <SectionStyled {...props}>
             {mainTitle && (
                 <H1>{mainTitle}</H1>
             )}

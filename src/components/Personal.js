@@ -1,9 +1,12 @@
-import React from 'react';
-import Section from './Utils/Section';
-import { styled, offset, enlight } from './Styles';
+import React, { useContext } from 'react';
 
-const PersonalLabel = styled.td`
-	${enlight()};
+import { styled, offset, highlight, Row } from './Styles';
+import CVContext from './CVContext';
+import Section from './Utils/Section';
+
+
+const PersonalLabel = styled.div`
+	${highlight()};
 	width: ${offset.leftLabel * 1.5}px;
 `;
 
@@ -15,6 +18,8 @@ const Photo = styled.img`
 `;
 
 const Personal = ({ personal, photo }) => {
+  const { enablePhoto } = useContext(CVContext);
+
     const {
 			name,
 			birthDate,
@@ -31,27 +36,25 @@ const Personal = ({ personal, photo }) => {
 		]
 
 		const renderRow = (row, index) => (
-			<tr key={index}>
+			<Row key={index}>
 				<PersonalLabel>
 					{row.label}:
 				</PersonalLabel>
-				<td>
+				<div>
 					{row.value}
-				</td>
-			</tr>
+				</div>
+			</Row>
 		)
 
     return (
-        <Section mainTitle={name}>
-						<table>
-							<tbody>
-								{rows.map(renderRow)}
-							</tbody>
-						</table>
-						{photo && (
-							<Photo src={photo} />
-						)}
-				</Section>
+			<Section broad mainTitle={name}>
+					<div>
+						{rows.map(renderRow)}
+					</div>
+					{(enablePhoto && photo) && (
+						<Photo src={photo} />
+					)}
+			</Section>
     )
 };
 

@@ -2,25 +2,22 @@ import React from 'react';
 
 import Section from './Utils/Section';
 import Timed from './Utils/Timed';
+import { H4 } from './Styles';
+import ComponentList from './Utils/ComponentList';
 
-const Education = ({ education }) => {
+const Education = ({ education }) => (
+  <Section title="Education">
+    <ComponentList list={education} Component={School} />
+  </Section>
+);
 
-    return (
-        <Section title="Education">
-            {education.map(renderSchool)}
-        </Section>
-    )
-}
-
-const renderSchool = (school, index) => <School key={index} school={school} />
-
-const School = ({ school }) => (
-    <>
-        <Timed time={school.timespan}>
-            <p>{school.name}, {school.type}</p>
-            <p>{school.more}</p>
-        </Timed>
-    </>
-)
+const School = ({ value: school }) => (
+  <Timed time={school.timespan}> 
+    <div>
+      <H4 inline>{school.name}</H4>, {school.type}
+    </div>
+    <p>{school.details}</p>
+  </Timed>
+);
 
 export default Education;

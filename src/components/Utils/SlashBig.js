@@ -1,12 +1,12 @@
 import React from 'react';
-import { styled, fontSize, colors, light } from "../Styles";
+import { styled, fontSize, light } from "../Styles";
 
 const Slash = styled.div`
   ${light()};
   display: inline-block;
-  font-size: ${fontSize.medium};
+  font-size: ${fontSize.huge};
   text-align: center;
-  width: 20px;
+  width: 35px;
 `;
 
 export default () => (
