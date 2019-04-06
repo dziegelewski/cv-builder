@@ -4,7 +4,7 @@ import { styled, fontSize, highlight } from '../Styles';
 
 const AStyled = styled.a`
   ${highlight()};
-  font-size: ${fontSize.huge};
+  font-size: ${fontSize.huge}px;
   text-decoration: none;
   display: inline-block;
 `;

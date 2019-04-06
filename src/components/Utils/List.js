@@ -1,12 +1,12 @@
 import React from 'react';
 
 import { Ul } from '../Styles';
-import BoldReplacer from './BoldReplacer';
+import TextParser from './TextParser';
 
 const defaultRenderer = (item, index) => {
   return (
     <li key={index}>
-      <BoldReplacer>{item}</BoldReplacer>
+      <TextParser>{item}</TextParser>
     </li>
   )
 }

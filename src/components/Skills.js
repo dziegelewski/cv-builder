@@ -37,8 +37,8 @@ const Skills = ({ data }) => {
     )
 }
 
-const renderSkillsLevel = ({ label, list }) => (
-  <SkillsLevel>
+const renderSkillsLevel = ({ label, list }, index) => (
+  <SkillsLevel key={index}>
     <LevelHeader>{label}</LevelHeader>
     <LevelContent>
       <List raw list={list} />

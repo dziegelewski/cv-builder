@@ -4,6 +4,9 @@ import { styled, offset, highlight, Row } from './Styles';
 import CVContext from './CVContext';
 import Section from './Utils/Section';
 
+const PersonalLabels = styled.div`
+	margin-top: 20px;
+`;
 
 const PersonalLabel = styled.div`
 	${highlight()};
@@ -48,9 +51,9 @@ const Personal = ({ personal, photo }) => {
 
     return (
 			<Section broad mainTitle={name}>
-					<div>
+					<PersonalLabels>
 						{rows.map(renderRow)}
-					</div>
+					</PersonalLabels>
 					{(enablePhoto && photo) && (
 						<Photo src={photo} />
 					)}

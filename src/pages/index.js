@@ -2,13 +2,13 @@ import React from "react"
 
 import CV from "../components/CV"
 import CVDashboard from "../components/CVDashboard"
-import data from '../data/data'
 import photo from '../data/photo.png';
+import dataSource from '../data'
 
 
 const IndexPage = () => (
   <CVDashboard>
-    <CV data={data} photo={photo} />
+    <CV data={dataSource} photo={photo} />
   </CVDashboard >
 )
 

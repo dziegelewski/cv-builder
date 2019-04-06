@@ -16,7 +16,8 @@ const School = ({ value: school }) => (
     <div>
       <H4 inline>{school.name}</H4>, {school.type}
     </div>
-    <p>{school.details}</p>
+    <p>{school.field}</p>
+    <p>specialization: {school.specialization}</p>
   </Timed>
 );
 

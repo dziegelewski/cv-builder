@@ -3,7 +3,7 @@ const gray = (a) => '#' + a.repeat(3);
 export const colors = {
   normal: gray('2B'),
   light: gray('60'),
-  super: 'blue',
+  super: '#0074D9',
   background: gray('EE'),
 
   shadow: '#000000',
@@ -12,10 +12,10 @@ export const colors = {
 };
 
 export const fontSize = {
-  small: '9px',
-  normal: '10px',
-  big: '14px',
-  huge: '18px',
+  small: 9,
+  normal: 10,
+  big: 14,
+  huge: 18,
 }
 
 export const offset = {

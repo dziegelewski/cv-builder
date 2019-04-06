@@ -6,7 +6,7 @@ import Section from './Utils/Section';
 
 
 const ClauseText = styled.p`
-  font-size: ${fontSize.small};
+  font-size: ${fontSize.small}px;
   color: ${colors.special};
   margin: 10px 0;
 `;

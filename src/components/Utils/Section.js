@@ -28,6 +28,6 @@ const Section = ({ mainTitle, title, children, ...props }) => {
             {children}
         </SectionStyled>
     )
-}
+};
 
 export default Section;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { PDFExport } from '@progress/kendo-react-pdf';
 
-import { styled, colors } from './Styles';
+import { styled, colors } from '../Styles';
 
 
 const PDFBackground = styled.div`
@@ -29,14 +29,14 @@ const A4Page = styled.div`
 class DownloadablePDF extends React.Component {
 
   static defaultProps = {
-    enableFullzise: true,
-    keepTogether: 'p, li',
+    enableFullsize: true,
+    keepTogether: '',
   };
 
   render() {
     const {
       children,
-      enableFullzise,
+      enableFullsize,
       keepTogether,
       title
     } = this.props;
@@ -52,7 +52,7 @@ class DownloadablePDF extends React.Component {
           keepTogether={keepTogether}
           ref={(r) => this.document = r}
         >
-          <A4Page fullsize={enableFullzise}>
+          <A4Page fullsize={enableFullsize}>
             {children}
           </A4Page>
         </PDFExport>

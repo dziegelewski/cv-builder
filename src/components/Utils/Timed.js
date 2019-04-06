@@ -1,7 +1,13 @@
 import React from 'react';
 import { styled, offset, Row } from '../Styles';
 
-const TimeCell = styled.div`
+const TimedRow = styled(Row)`
+  &:nth-child(n+2) {
+    margin-top: 10px;
+  }
+`;
+
+const TimeCell = styled.time`
   flex-basis: ${offset.leftLabel}px;
   box-sizing: border-box;
   padding-right: 10px;
@@ -11,10 +17,10 @@ const TimeCell = styled.div`
 
 const Timed = ({ time, children }) => {
   return (
-    <Row>
+    <TimedRow>
       <TimeCell>{time}</TimeCell>
       <div>{children}</div>
-    </Row>
+    </TimedRow>
   )
 }
 
