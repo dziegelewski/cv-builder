@@ -1,5 +1,3 @@
-import { fontSize } from './variables';
-
 export default `
   @font-face {
     font-family: "DejaVu Sans";
@@ -26,7 +24,6 @@ export default `
   }
 
   html {
-    font-size: ${fontSize.normal};
     font-family: "DejaVu Sans", "Arial", sans-serif;
   }
 `;

@@ -32,20 +32,21 @@ export const inlineable = () => css`
 export const GlobalStyle = createGlobalStyle`
   ${fontFace};
 
-  html {
-    font-size: ${fontSize.normal};
-  }
-
   body {
     margin: 0;
     padding: 0;
-    color: ${colors.normal};
-    line-height: 150%;
   }
 
   p {
     margin: 0;
   }
+`;
+
+export const Main = styled.main`
+  margin: 0 auto;
+  color: ${colors.normal};
+  line-height: 150%;
+  font-size: ${fontSize.normal};
 
   strong {
     ${highlight()};

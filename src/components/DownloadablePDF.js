@@ -1,8 +1,7 @@
 import React from 'react';
 import { PDFExport } from '@progress/kendo-react-pdf';
 
-import { styled, colors, fontSize, css } from './Styles';
-import CVContext from './CVContext';
+import { styled, colors } from './Styles';
 
 
 const PDFBackground = styled.div`
@@ -27,124 +26,43 @@ const A4Page = styled.div`
   overflow-y: hidden;
 `;
 
-const Nav = styled.nav`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 100%;
-  box-sizing: border-box;
-  padding: 20px 40px;
-`;
-
-const NavButtton = styled.button`
-  width: 100px;
-  height: 60px;
-  border: none;
-  font-size: ${fontSize.big};
-  background: ${colors.paperWhite};
-  color: ${colors.chromePDFBackground};
-  font-weight: 900;
-  margin: 10px 0;
-  border-radius: 5%;
-`;
-
-const NavButttonSpace = styled(NavButtton)`
-  visibility: hidden;
-`;
-
 class DownloadablePDF extends React.Component {
 
   static defaultProps = {
+    enableFullzise: true,
     keepTogether: 'p, li',
-  };
-
-  state = {
-    fullsize: true,
-    enablePhoto: true,
-    enableClause: true,
   };
 
   render() {
     const {
-      title,
-      keepTogether,
       children,
+      enableFullzise,
+      keepTogether,
+      title
     } = this.props;
 
-    const {
-      enablePhoto,
-      enableClause,
-      fullsize,
-    } = this.state;
-
     return (
-      <CVContext.Provider value={{ enablePhoto, enableClause }}>
-        <PDFBackground>
-          <PDFExport
-            paperSize={'A4'}
-            fileName={`${title}.pdf`}
-            title={title}
-            subject=""
-            keywords=""
-            keepTogether={keepTogether}
-            ref={(r) => this.document = r}
-          >
-            <A4Page fullsize={fullsize}>
-              {children}
-            </A4Page>
-          </PDFExport>
-
-          <Nav>
-            <NavButtton onClick={this.togglePhoto}>
-              Photo {toggledState(enablePhoto)}
-            </NavButtton>
-            <NavButtton onClick={this.toggleClause}>
-              Clause {toggledState(enableClause)}
-            </NavButtton>
-
-            <NavButttonSpace as="div" />
-
-            <NavButtton onClick={this.toggleFullsize}>
-              Fullsize {toggledState(fullsize)}
-            </NavButtton>
-            <NavButtton onClick={this.exportPDF}>
-              Download
-            </NavButtton>
-          </Nav>
-
-        </PDFBackground>
-      </CVContext.Provider>
-    );
+      <PDFBackground>
+        <PDFExport
+          paperSize={'A4'}
+          fileName={`${title}.pdf`}
+          title={title}
+          subject=""
+          keywords=""
+          keepTogether={keepTogether}
+          ref={(r) => this.document = r}
+        >
+          <A4Page fullsize={enableFullzise}>
+            {children}
+          </A4Page>
+        </PDFExport>
+      </PDFBackground>
+    )
   }
 
-  togglePhoto = () => {
-    this.setState({
-      enablePhoto: !this.state.enablePhoto
-    })
-  };
-
-  toggleClause = () => {
-    this.setState({
-      enableClause: !this.state.enableClause
-    })
-  };
-
-  toggleFullsize = () => {
-    this.setState({
-      fullsize: !this.state.fullsize
-    })
-  };
-  
   exportPDF = () => {
     this.document.save();
   }
-}
-
-function toggledState(isOn) {
-  return isOn ? 'off' : 'on';
 }
 
 export default DownloadablePDF;
