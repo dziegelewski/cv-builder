@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 
 import { styled, colors, fontSize, size } from './Styles';
-import { useToggleState, toggledState, mapTechnologiesTags } from './Utils/Helpers'
+import { useToggleState, toggledState, mapTechnologiesTags, useDocumentTitle } from './Utils/Helpers'
 import { showHelp } from './Utils/Help';
 import DownloadablePDF from "./Utils/DownloadablePDF";
 import MultiselectList from './Utils/MultiselectList';
@@ -58,6 +58,7 @@ const NavSeparator = styled(NavField)`
 
 
 const CVDashboard = ({ owner, technologiesTags, children }) => {
+  useDocumentTitle(`${owner} CV`);
   const [enableFullsize, toggleFullsize] = useToggleState(true);
   const [showDesired, toggleDesired] = useToggleState(false);
   const [enablePhoto, togglePhoto] = useToggleState(true);

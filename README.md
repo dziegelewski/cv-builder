@@ -5,4 +5,4 @@ So basically I was tired of editing my CV in Open Office. Adding anything new ma
 
 If you want to use it as well - go for it! Any feedback would be more than welcome.
 
-Just edit the source files in `src/data` or other files - currently it's filled with example stuff - and run `npm run develop`. Gatsby handles all the hot module replacement stuff.
+Just edit the source files in `src/data` or other files - currently it's filled with example stuff - and run `npm start`. Gatsby handles all the hot module replacement stuff.

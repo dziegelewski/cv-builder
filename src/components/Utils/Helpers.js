@@ -1,10 +1,16 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export const useToggleState = (initial) => {
   const [state, setState] = useState(initial);
 
   const toggleState = () => setState(!state);
   return [state, toggleState];
+}
+
+export const useDocumentTitle = (title) => {
+  useEffect(() => {
+    document.title = title
+  }, [])
 }
 
 export function toggledState(isOn) {
