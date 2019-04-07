@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react';
 
-import * as technologiesTags from '../data/technologiesTags';
 import { styled, colors, fontSize, size } from './Styles';
 import { useToggleState, toggledState, mapTechnologiesTags } from './Utils/Helpers'
 import { showHelp } from './Utils/Help';
@@ -57,9 +56,8 @@ const NavSeparator = styled(NavField)`
   visibility: hidden;
 `;
 
-const technologies = mapTechnologiesTags(technologiesTags);
 
-const CVDashboard = ({ owner, children }) => {
+const CVDashboard = ({ owner, technologiesTags, children }) => {
   const [enableFullsize, toggleFullsize] = useToggleState(true);
   const [showDesired, toggleDesired] = useToggleState(false);
   const [enablePhoto, togglePhoto] = useToggleState(true);
@@ -68,6 +66,8 @@ const CVDashboard = ({ owner, children }) => {
 
   const cv = useRef();
   const downloadCV = () => cv.current.exportPDF();
+
+  const technologies = mapTechnologiesTags(technologiesTags);
 
   return (
     <CVContext.Provider value={{ enablePhoto, enableClause, desiredTechnologies }}>

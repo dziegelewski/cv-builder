@@ -1,15 +1,5 @@
-import React from "react"
+import React from 'react';
+import CompletePage from '../components/CompletePage';
+import dataSource from '../cv-data';
 
-import CV from "../components/CV"
-import CVDashboard from "../components/CVDashboard"
-import photo from '../data/photo.png';
-import dataSource from '../data'
-
-
-const IndexPage = () => (
-  <CVDashboard owner={dataSource.personal.name}>
-    <CV data={dataSource} photo={photo} />
-  </CVDashboard >
-)
-
-export default IndexPage
+export default () => <CompletePage dataSource={dataSource} />;

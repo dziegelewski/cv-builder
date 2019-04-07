@@ -10,12 +10,12 @@ import Clause from './Clause';
 import JustListSection from './Utils/JustListSection';
 
 
-const CV = ({ data, photo }) => {
+const CV = ({ data }) => {
   return (
     <>
       <GlobalStyle />
       <Main>
-          <Personal personal={data.personal} photo={photo} />
+          <Personal personal={data.personal} photo={data.photo} />
           <Programming programming={data.programming} />
           <Experience experience={data.experience} />
           <Languages languages={data.languages} />

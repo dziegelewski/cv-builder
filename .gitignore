@@ -67,3 +67,7 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+.gitmodules
+cv-data-priv/
+src/pages/priv.js
