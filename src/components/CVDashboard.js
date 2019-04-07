@@ -1,11 +1,12 @@
 import React, { useRef, useState } from 'react';
 
 import * as technologiesTags from '../data/technologiesTags';
-import { styled, colors, fontSize } from './Styles';
+import { styled, colors, fontSize, size } from './Styles';
+import { useToggleState, toggledState, mapTechnologiesTags } from './Utils/Helpers'
+import { showHelp } from './Utils/Help';
 import DownloadablePDF from "./Utils/DownloadablePDF";
-import { useToggleState, toggledState, mapTechnologiesTags } from './Utils/Helpers';
-import CVContext from './CVContext';
 import MultiselectList from './Utils/MultiselectList';
+import CVContext from './CVContext';
 
 const Nav = styled.nav`
   display: flex;
@@ -46,13 +47,19 @@ const NavButtton = styled(NavField).attrs({
   align-items: center;
 `;
 
+const NavHelp = styled(NavButtton)`
+  min-height: unset;
+  border-radius: 50%;
+  ${size(25)};
+`;
+
 const NavSeparator = styled(NavField)`
   visibility: hidden;
 `;
 
 const technologies = mapTechnologiesTags(technologiesTags);
 
-const CVDashboard = ({ children }) => {
+const CVDashboard = ({ owner, children }) => {
   const [enableFullsize, toggleFullsize] = useToggleState(true);
   const [showDesired, toggleDesired] = useToggleState(false);
   const [enablePhoto, togglePhoto] = useToggleState(true);
@@ -67,11 +74,12 @@ const CVDashboard = ({ children }) => {
       <DownloadablePDF
         enableFullsize={enableFullsize}
         ref={cv}
-        title="Grzegorz Dzięgelewski CV"
+        title={`${owner} CV`}
       >
         {children}
       </DownloadablePDF>
       <Nav>
+        <NavHelp onClick={showHelp}>i</NavHelp>
         <NavButtton onClick={toggleDesired}>
           Highlight
         </NavButtton>

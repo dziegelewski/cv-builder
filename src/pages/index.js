@@ -7,7 +7,7 @@ import dataSource from '../data'
 
 
 const IndexPage = () => (
-  <CVDashboard>
+  <CVDashboard owner={dataSource.personal.name}>
     <CV data={dataSource} photo={photo} />
   </CVDashboard >
 )
