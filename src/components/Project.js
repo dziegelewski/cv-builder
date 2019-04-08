@@ -1,9 +1,12 @@
 import React from 'react';
 
 import List from './Utils/List';
-import { styled, colors, Nested, H4 } from '../styles';
+import { styled, colors, Nested, H4, topOffsetOnPageBreak } from '../styles';
+import keepTogether from '../utils/keepTogether';
 
 const ProjectWrapper = styled.article`
+  ${topOffsetOnPageBreak()};
+
   &:nth-of-type(n+2) h4 {
       padding-top: 7px;
       border-top: 1px dotted ${colors.light};
@@ -15,7 +18,7 @@ const ProjectHeader = styled(Nested)`
 `;
 
 const Project = ({ value: project }) => (
-  <ProjectWrapper>
+  <ProjectWrapper className={keepTogether}>
     <ProjectHeader>
       <H4>{project.title}</H4>
       <p>{project.position}</p>

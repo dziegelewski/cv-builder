@@ -3,6 +3,7 @@ import React, { useRef, useState } from 'react';
 import { styled, colors, fontSize, size } from '../styles';
 import { useToggleState, toOnOff, mapTechnologiesTags, useDocumentTitle } from '../utils'
 import showHelp from '../utils/showHelp';
+import keepTogether from '../utils/keepTogether';
 import DownloadablePDF from "./Utils/DownloadablePDF";
 import MultiselectList from './Utils/MultiselectList';
 import CVContext from './CVContext';
@@ -60,7 +61,6 @@ const NavSeparator = styled(NavField)`
 
 const CVDashboard = ({ owner, technologiesTags, children }) => {
   useDocumentTitle(`${owner} CV`);
-  const [enableFullsize, toggleFullsize] = useToggleState(true);
   const [showDesired, toggleDesired] = useToggleState(false);
   const [enablePhoto, togglePhoto] = useToggleState(true);
   const [enableClause, toggleClause] = useToggleState(true);
@@ -74,7 +74,8 @@ const CVDashboard = ({ owner, technologiesTags, children }) => {
   return (
     <CVContext.Provider value={{ enablePhoto, enableClause, desiredTechnologies }}>
       <DownloadablePDF
-        enableFullsize={enableFullsize}
+        enableFullsize
+        keepTogether={`.${keepTogether}`}
         ref={cv}
         title={`${owner} CV`}
       >
@@ -103,9 +104,6 @@ const CVDashboard = ({ owner, technologiesTags, children }) => {
 
         <NavSeparator />
 
-        <NavButtton onClick={toggleFullsize}>
-          Fullsize: {toOnOff(enableFullsize)}
-        </NavButtton>
         <NavButtton onClick={downloadCV}>
           Download
         </NavButtton>

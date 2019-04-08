@@ -6,13 +6,13 @@ import { styled, colors } from '../../styles';
 
 const PDFBackground = styled.div`
   width: 100%;
+  min-height: 100%;
   position: absolute;
   box-sizing: border-box;
   top: 0;
   left: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   background: ${colors.chromePDFBackground};
   padding: 20px;
 `;
@@ -53,11 +53,6 @@ const DownloadablePDF = ({ children, title, enableFullsize, keepTogether }, ref)
         </PDFExport>
       </PDFBackground>
     );
-}
-
-DownloadablePDF.defaultProps = {
-  enableFullsize: true,
-  keepTogether: '',
 }
 
 export default forwardRef(DownloadablePDF);

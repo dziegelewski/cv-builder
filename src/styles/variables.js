@@ -21,4 +21,5 @@ export const fontSize = {
 export const offset = {
   pageSide: 50,
   leftLabel: 60,
+  sheetTop: 15,
 };

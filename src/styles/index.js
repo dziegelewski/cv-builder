@@ -29,6 +29,12 @@ export const inlineable = () => css`
   `}
 `;
 
+export const topOffsetOnPageBreak = () => css`
+  &:first-child {
+    margin-top: ${offset.sheetTop}px;
+  }
+`;
+
 export const size = (px) => css`
   width: ${px}px;
   height: ${px}px;
