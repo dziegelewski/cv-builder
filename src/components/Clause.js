@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import { styled, fontSize, colors } from './Styles';
+import { styled, fontSize, colors } from '../styles';
 import CVContext from './CVContext';
 import Section from './Utils/Section';
 

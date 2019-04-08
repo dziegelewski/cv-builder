@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { GlobalStyle, Main } from './Styles';
+import { GlobalStyle, Main } from '../styles';
 import Personal from './Personal';
 import Programming from './Programming';
 import Experience from './Experience';

@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useImperativeHandle, forwardRef, useRef } from 'react';
 import { PDFExport } from '@progress/kendo-react-pdf';
 
-import { styled, colors } from '../Styles';
+import { styled, colors } from '../../styles';
 
 
 const PDFBackground = styled.div`
+  width: 100%;
+  position: absolute;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,20 +31,10 @@ const A4Page = styled.div`
   overflow-y: hidden;
 `;
 
-class DownloadablePDF extends React.Component {
-
-  static defaultProps = {
-    enableFullsize: true,
-    keepTogether: '',
-  };
-
-  render() {
-    const {
-      children,
-      enableFullsize,
-      keepTogether,
-      title
-    } = this.props;
+const DownloadablePDF = ({ children, title, enableFullsize, keepTogether }, ref) => {
+    const document = useRef();
+    const exportPDF = () => document.current.save();
+    useImperativeHandle(ref, () => ({ exportPDF }))
 
     return (
       <PDFBackground>
@@ -50,19 +45,19 @@ class DownloadablePDF extends React.Component {
           subject=""
           keywords=""
           keepTogether={keepTogether}
-          ref={(r) => this.document = r}
+          ref={document}
         >
           <A4Page fullsize={enableFullsize}>
             {children}
           </A4Page>
         </PDFExport>
       </PDFBackground>
-    )
-  }
-
-  exportPDF = () => {
-    this.document.save();
-  }
+    );
 }
 
-export default DownloadablePDF;
+DownloadablePDF.defaultProps = {
+  enableFullsize: true,
+  keepTogether: '',
+}
+
+export default forwardRef(DownloadablePDF);

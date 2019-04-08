@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Section from './Utils/Section';
-import { Ul, H4 } from './Styles';
+import { Ul, H4 } from '../styles';
 import ComponentList from './Utils/ComponentList';
 
 const Languages = ({ languages }) => (

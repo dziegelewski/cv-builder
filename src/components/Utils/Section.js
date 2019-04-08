@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled, colors, H1, H2, offset } from '../Styles';
+import { styled, colors, H1, H2, offset } from '../../styles';
 
 const SectionStyled = styled.section`
     margin: 0;

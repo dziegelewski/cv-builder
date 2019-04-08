@@ -2,7 +2,7 @@ import React from 'react';
 
 import Section from './Utils/Section';
 import Timed from './Utils/Timed';
-import { H4 } from './Styles';
+import { H4 } from '../styles';
 import ComponentList from './Utils/ComponentList';
 
 const Education = ({ education }) => (

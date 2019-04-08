@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Ul } from '../Styles';
+import { Ul } from '../../styles';
 import TextParser from './TextParser';
 
 const defaultRenderer = (item, index) => {

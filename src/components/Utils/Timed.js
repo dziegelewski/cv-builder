@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled, offset, Row } from '../Styles';
+import { styled, offset, Row } from '../../styles';
 
 const TimedRow = styled(Row)`
   &:nth-child(n+2) {

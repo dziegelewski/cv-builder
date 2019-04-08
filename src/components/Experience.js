@@ -5,7 +5,7 @@ import Section from './Utils/Section';
 import Timed from './Utils/Timed';
 import List from './Utils/List';
 import ComponentList from './Utils/ComponentList';
-import { Nested, H3 } from './Styles';
+import { Nested, H3 } from '../styles';
 import TextParser from './Utils/TextParser';
 
 

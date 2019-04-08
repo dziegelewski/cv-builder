@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { styled, fontSize, highlight } from '../Styles';
+import { styled, fontSize, highlight } from '../../styles';
 
 const AStyled = styled.a`
   ${highlight()};

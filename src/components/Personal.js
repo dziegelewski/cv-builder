@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import { styled, offset, highlight, Row } from './Styles';
+import { styled, offset, highlight, Row } from '../styles';
 import CVContext from './CVContext';
 import Section from './Utils/Section';
 

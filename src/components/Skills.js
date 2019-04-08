@@ -1,7 +1,7 @@
 import React from 'react';
 
 import List from './Utils/List';
-import { styled, colors, light } from './Styles';
+import { styled, colors, light } from '../styles';
 
 
 const SkillsTable = styled.div`

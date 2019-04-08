@@ -4,7 +4,7 @@ import Skills from './Skills';
 import Section from './Utils/Section';
 import LinkBig from './Utils/LinkBig';
 import SlashBig from './Utils/SlashBig';
-import { styled } from './Styles';
+import { styled } from '../styles';
 
 const Links = styled.div`
   margin: 10px 0;

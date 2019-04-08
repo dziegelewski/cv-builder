@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled, fontSize, light } from "../Styles";
+import { styled, fontSize, light } from "../../styles";
 
 const Slash = styled.div`
   ${light()};

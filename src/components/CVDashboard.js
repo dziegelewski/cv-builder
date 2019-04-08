@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react';
 
-import { styled, colors, fontSize, size } from './Styles';
-import { useToggleState, toggledState, mapTechnologiesTags, useDocumentTitle } from './Utils/Helpers'
-import { showHelp } from './Utils/Help';
+import { styled, colors, fontSize, size } from '../styles';
+import { useToggleState, toOnOff, mapTechnologiesTags, useDocumentTitle } from '../utils'
+import showHelp from '../utils/showHelp';
 import DownloadablePDF from "./Utils/DownloadablePDF";
 import MultiselectList from './Utils/MultiselectList';
 import CVContext from './CVContext';
@@ -44,6 +44,7 @@ const NavButtton = styled(NavField).attrs({
 })`
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 `;
 
 const NavHelp = styled(NavButtton)`
@@ -94,16 +95,16 @@ const CVDashboard = ({ owner, technologiesTags, children }) => {
           </NavField>
         )}
         <NavButtton onClick={togglePhoto}>
-          Photo {toggledState(enablePhoto)}
+          Photo: {toOnOff(enablePhoto)}
         </NavButtton>
         <NavButtton onClick={toggleClause}>
-          Clause {toggledState(enableClause)}
+          Clause: {toOnOff(enableClause)}
         </NavButtton>
 
         <NavSeparator />
 
         <NavButtton onClick={toggleFullsize}>
-          Fullsize {toggledState(enableFullsize)}
+          Fullsize: {toOnOff(enableFullsize)}
         </NavButtton>
         <NavButtton onClick={downloadCV}>
           Download
