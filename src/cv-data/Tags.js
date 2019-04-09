@@ -1,4 +1,4 @@
-// Export any technologies abbrevs you need from here.
+// Export any technologies, soft skills etc. abbrevs you need from here.
 // They will appear in checkboxlist in dashboard automatically.
 
 export const R = 'React';

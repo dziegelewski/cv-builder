@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled, colors, H1, H2, offset } from '../../styles';
+import { styled, colors, H1, H2, offset, topOffsetOnPageBreak } from '../../styles';
 
 const SectionStyled = styled.section`
     margin: 0;
@@ -13,12 +13,16 @@ const SectionStyled = styled.section`
     ${props => props.broad && `
         padding-bottom: 20px;
     `}
+
+    ${props => props.title && `
+        ${topOffsetOnPageBreak()};
+    `}
 `;
 
 
 const Section = ({ mainTitle, title, children, ...props }) => {
     return (
-        <SectionStyled {...props}>
+        <SectionStyled title={title} {...props}>
             {mainTitle && (
                 <H1>{mainTitle}</H1>
             )}

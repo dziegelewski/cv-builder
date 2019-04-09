@@ -1,4 +1,4 @@
-import { R, TS, V, N, PY } from './technologiesTags';
+import { R, TS, V, N, PY } from './Tags';
 
 export default [
   {
@@ -13,7 +13,7 @@ export default [
       {
         title: "Car Sharing App",
         info: [
-          `Working on an enterprise app together with 50+ devs`,
+          `Work on an enterprise app together with 50+ devs`,
           `Focusing on front-end part of the app - writing ${R}*React* with ${TS}*Typescript*`,
           `Doing small backend tasks with ${PY}*Python* from time to time`
         ]
@@ -21,7 +21,7 @@ export default [
       {
         title: "Banking Webapp",
         info: [
-          `Working with a small, well organized JS developers team - on both frontend and backend side`,
+          `Work with a small, well organized JS developers team - on both frontend and backend side`,
           `Using technologies such as: ${R}*React*, *Redux*, *Scss*`,
           `On backend: ${N}*Node.js*, Nest.js, *Rx.js*, Azure, Docker`,
           `With a help of Scrum, Git, Jira, GitLab`,
@@ -31,7 +31,7 @@ export default [
       {
         title: "Code Monastery Website",
         info: [
-          'Additional project - maintaining company page written in *vanilla JavaScript*'
+          'Additional project - maintaining company\'s page written in *vanilla JavaScript*'
         ]
       }
     ],
@@ -47,7 +47,7 @@ export default [
     info: [
       `Developing the front-end layer of a web portal and mobile application`,
       `Writting code in ${V}*Vue* and sometimes even in ${PY}*Python*`,
-      `Working on an independent position in Scrum, using *Git*, *Jira*, *Bitbucket*`,
+      `Work on an independent position in Scrum, using *Git*, *Jira*, *Bitbucket*`,
       `Cooperating with a team of Python back-end develoers, UX designer, tester`,
     ]
   },

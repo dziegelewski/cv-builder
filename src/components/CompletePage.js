@@ -6,7 +6,7 @@ import CVDashboard from "./CVDashboard"
 const CompletePage = ({ dataSource }) => (
   <CVDashboard
     owner={dataSource.personal.name}
-    technologiesTags={dataSource.technologiesTags}
+    tags={dataSource.Tags}
   >
     <CV data={dataSource} />
   </CVDashboard >

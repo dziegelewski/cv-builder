@@ -5,7 +5,7 @@ import languages from './languages';
 import education from './education';
 import interests from './interests';
 import photo from './photo.png';
-import * as technologiesTags from './technologiesTags';
+import * as Tags from './Tags';
 
 export default {
     personal,
@@ -15,5 +15,5 @@ export default {
     education,
     interests,
     photo,
-    technologiesTags,
+    Tags,
   }

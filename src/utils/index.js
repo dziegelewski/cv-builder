@@ -17,11 +17,11 @@ export const toOnOff = (isOn) => {
   return isOn ? 'on' : 'off';
 }
 
-export const mapTechnologiesTags = (technologies) => {
-  const abbrevs = Object.keys(technologies);
+export const mapTags = (tags) => {
+  const abbrevs = Object.keys(tags);
   return abbrevs.map((abbrev) => ({
-    name: technologies[abbrev],
-    value: technologies[abbrev]
+    name: tags[abbrev],
+    value: tags[abbrev]
   }))
 }
 

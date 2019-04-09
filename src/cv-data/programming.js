@@ -1,4 +1,4 @@
-import { R, TS, V, N, PY } from './technologiesTags';
+import { R, TS, V, N, PY } from './Tags';
 
 const advanced = [
     `**JavaScript (ES6+)`,

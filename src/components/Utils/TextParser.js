@@ -8,8 +8,8 @@ const CHAR = '*';
 const DOUBLE_CHAR = CHAR.repeat(2);
 
 const TextParser = ({ children }) => {
-  const { desiredTechnologies } = useContext(CVContext);
-  const isTechnologyDesired = (technologyTag) => desiredTechnologies.includes(technologyTag);
+  const { markedTags } = useContext(CVContext);
+  const isTagMarked = (tag) => markedTags.includes(tag);
   let text = textContent(children);
 
   if (!text.includes(CHAR)) {
@@ -22,7 +22,7 @@ const TextParser = ({ children }) => {
 
   const wrappedWithChar = /([a-zA-Z]+)?\*(.*?)\*/g;
   const wrapWithBoldInstead = (match, technologyTag, content) => {
-      return isTechnologyDesired(technologyTag)
+      return isTagMarked(technologyTag)
         ? `<mark>${content}</mark>`
         : `<strong>${content}</strong>`;
   }

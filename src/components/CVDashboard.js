@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 
 import { styled, colors, fontSize, size } from '../styles';
-import { useToggleState, toOnOff, mapTechnologiesTags, useDocumentTitle } from '../utils'
+import { useToggleState, toOnOff, mapTags, useDocumentTitle } from '../utils'
 import showHelp from '../utils/showHelp';
 import keepTogether from '../utils/keepTogether';
 import DownloadablePDF from "./Utils/DownloadablePDF";
@@ -59,20 +59,20 @@ const NavSeparator = styled(NavField)`
 `;
 
 
-const CVDashboard = ({ owner, technologiesTags, children }) => {
+const CVDashboard = ({ owner, tags, children }) => {
   useDocumentTitle(`${owner} CV`);
   const [showDesired, toggleDesired] = useToggleState(false);
   const [enablePhoto, togglePhoto] = useToggleState(true);
   const [enableClause, toggleClause] = useToggleState(true);
-  const [desiredTechnologies, setDesiredTechnologies] = useState([]);
+  const [markedTags, setMarkedTags] = useState([]);
 
   const cv = useRef();
   const downloadCV = () => cv.current.exportPDF();
 
-  const technologies = mapTechnologiesTags(technologiesTags);
+  const availableTags = mapTags(tags);
 
   return (
-    <CVContext.Provider value={{ enablePhoto, enableClause, desiredTechnologies }}>
+    <CVContext.Provider value={{ enablePhoto, enableClause, markedTags }}>
       <DownloadablePDF
         enableFullsize
         keepTogether={`.${keepTogether}`}
@@ -89,9 +89,9 @@ const CVDashboard = ({ owner, technologiesTags, children }) => {
         {showDesired && (
           <NavField close>
             <MultiselectList
-              items={technologies}
-              selectedItems={desiredTechnologies}
-              onChange={setDesiredTechnologies}
+              items={availableTags}
+              selectedItems={markedTags}
+              onChange={setMarkedTags}
             />
           </NavField>
         )}
