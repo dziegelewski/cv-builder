@@ -4,6 +4,7 @@ import Project from './Project';
 import Timed from './Utils/Timed';
 import List from './Utils/List';
 import { Nested, H3, styled, topOffsetOnPageBreak } from '../styles';
+import { useGetHiddenOnBlind } from '../utils'
 import keepTogether from '../utils/keepTogether'
 import ComponentList from './Utils/ComponentList';
 import TextParser from './Utils/TextParser';
@@ -36,10 +37,14 @@ const Job = ({ value: job }) => (
   </JobWrapper>
 );
 
-const Company = ({ value: company }) => (
-  <div>
-    <H3 inline>{company.name}</H3> ({company.description}), {company.origin}
-  </div>
-);
+const Company = ({ value: company }) => {
+  const hiddenOnBlind = useGetHiddenOnBlind();
+
+  return (
+    <div>
+      <H3 inline>{hiddenOnBlind(company.name)}</H3> ({company.description}), {company.origin}
+    </div>
+  )
+};
 
 export default Job;;

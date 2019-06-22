@@ -12,9 +12,9 @@ const ClauseText = styled.p`
 `;
 
 const Clause = () => {
-  const { enableClause } = useContext(CVContext);
+  const { enableClause, enableBlind } = useContext(CVContext);
 
-  if (!enableClause) {
+  if (!enableClause || enableBlind) {
     return null;
   }
 

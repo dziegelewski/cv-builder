@@ -3,12 +3,15 @@ import htmlToReact from 'html-react-parser';
 import textContent from 'react-addons-text-content';
 
 import CVContext from '../CVContext';
+import { useGetHiddenOnBlind } from '../../utils'
+
 
 const CHAR = '*'; 
 const DOUBLE_CHAR = CHAR.repeat(2);
 
 const TextParser = ({ children }) => {
   const { markedTags } = useContext(CVContext);
+  const hiddenOnBlind = useGetHiddenOnBlind();
   const isTagMarked = (tag) => markedTags.includes(tag);
   let text = textContent(children);
 
@@ -20,6 +23,9 @@ const TextParser = ({ children }) => {
     text = text.replace(DOUBLE_CHAR, CHAR) + CHAR;
   }
 
+  const wrappedWithConfidentialTag = /CONFIDENTIAL\*(.*?)\*/g;
+  const hideConfidentialText = (match, content) => hiddenOnBlind(content);
+
   const wrappedWithChar = /([a-zA-Z]+)?\*(.*?)\*/g;
   const wrapWithBoldInstead = (match, technologyTag, content) => {
       return isTagMarked(technologyTag)
@@ -28,7 +34,9 @@ const TextParser = ({ children }) => {
   }
 
   return htmlToReact(
-    text.replace(wrappedWithChar, wrapWithBoldInstead)
+    text
+      .replace(wrappedWithConfidentialTag, hideConfidentialText)
+      .replace(wrappedWithChar, wrapWithBoldInstead)
   )
 }
 

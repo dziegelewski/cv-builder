@@ -20,8 +20,9 @@ const Photo = styled.img`
 	bottom: 0;
 `;
 
+
 const Personal = ({ personal, photo }) => {
-  const { enablePhoto } = useContext(CVContext);
+  const { enablePhoto, enableBlind } = useContext(CVContext);
 
     const {
 			name,
@@ -48,6 +49,10 @@ const Personal = ({ personal, photo }) => {
 				</div>
 			</Row>
 		)
+
+		if (enableBlind) {
+			return null;
+		}
 
     return (
 			<Section broad mainTitle={name}>

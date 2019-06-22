@@ -3,6 +3,7 @@ import React from 'react';
 import List from './Utils/List';
 import { styled, colors, Nested, H4, topOffsetOnPageBreak } from '../styles';
 import keepTogether from '../utils/keepTogether';
+import TextParser from './Utils/TextParser';
 
 const ProjectWrapper = styled.article`
   ${topOffsetOnPageBreak()};
@@ -20,7 +21,7 @@ const ProjectHeader = styled(Nested)`
 const Project = ({ value: project }) => (
   <ProjectWrapper className={keepTogether}>
     <ProjectHeader>
-      <H4>{project.title}</H4>
+      <H4><TextParser>{project.title}</TextParser></H4>
       <p>{project.position}</p>
     </ProjectHeader>
     <List list={project.info} />

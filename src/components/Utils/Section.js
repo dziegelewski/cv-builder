@@ -1,7 +1,7 @@
 import React from 'react';
 import { styled, colors, H1, H2, offset, topOffsetOnPageBreak } from '../../styles';
 
-const SectionStyled = styled.section`
+const SectionStyled = styled(({ title, broad, separated, ...props }) => <section {...props} />)`
     margin: 0;
     padding: 10px ${offset.pageSide}px;
     position: relative;
@@ -12,6 +12,10 @@ const SectionStyled = styled.section`
 
     ${props => props.broad && `
         padding-bottom: 20px;
+    `}
+
+    ${props => props.separated && `
+        padding-top: 20px;
     `}
 
     ${props => props.title && `

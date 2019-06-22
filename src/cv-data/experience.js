@@ -1,4 +1,4 @@
-import { R, TS, V, N, PY } from './Tags';
+import { R, TS, V, N, PY, CONFIDENTIAL } from './Tags';
 
 export default [
   {
@@ -15,7 +15,7 @@ export default [
         info: [
           `Work on an enterprise app together with 50+ devs`,
           `Focusing on front-end part of the app - writing ${R}*React* with ${TS}*Typescript*`,
-          `Doing small backend tasks with ${PY}*Python* from time to time`
+          `Doing small backend tasks with ${PY}*Python* from time to time`,
         ]
       },
       {
@@ -29,7 +29,7 @@ export default [
         ]
       },
       {
-        title: "Code Monastery Website",
+        title: `${CONFIDENTIAL}*Code Monastery Specials* Website`,
         info: [
           'Additional project - maintaining company\'s page written in *vanilla JavaScript*'
         ]

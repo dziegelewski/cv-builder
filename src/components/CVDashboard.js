@@ -62,6 +62,7 @@ const NavSeparator = styled(NavField)`
 const CVDashboard = ({ owner, tags, children }) => {
   useDocumentTitle(`${owner} CV`);
   const [showDesired, toggleDesired] = useToggleState(false);
+  const [enableBlind, toggleBlind] = useToggleState(false);
   const [enablePhoto, togglePhoto] = useToggleState(true);
   const [enableClause, toggleClause] = useToggleState(true);
   const [markedTags, setMarkedTags] = useState([]);
@@ -72,7 +73,7 @@ const CVDashboard = ({ owner, tags, children }) => {
   const availableTags = mapTags(tags);
 
   return (
-    <CVContext.Provider value={{ enablePhoto, enableClause, markedTags }}>
+    <CVContext.Provider value={{ enablePhoto, enableClause, enableBlind, markedTags }}>
       <DownloadablePDF
         enableFullsize
         keepTogether={`.${keepTogether}`}
@@ -95,6 +96,9 @@ const CVDashboard = ({ owner, tags, children }) => {
             />
           </NavField>
         )}
+        <NavButtton onClick={toggleBlind}>
+          Blind: {toOnOff(enableBlind)}
+        </NavButtton>
         <NavButtton onClick={togglePhoto}>
           Photo: {toOnOff(enablePhoto)}
         </NavButtton>
