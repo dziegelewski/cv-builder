@@ -42,7 +42,11 @@ const Company = ({ value: company }) => {
 
   return (
     <div>
-      <H3 inline>{hiddenOnBlind(company.name)}</H3> ({company.description}), {company.origin}
+      <H3 inline>{hiddenOnBlind(company.name)}</H3>
+      {company.description && (
+        <>{' '}({company.description})</>
+      )},{' '}
+      {company.origin}
     </div>
   )
 };
