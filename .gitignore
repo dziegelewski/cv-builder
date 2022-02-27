@@ -71,3 +71,5 @@ yarn-error.log
 .gitmodules
 cv-data-priv/
 src/pages/priv.js
+
+.idea/
