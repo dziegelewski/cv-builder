@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from "react"
 
 import { GlobalStyle, Main } from '../styles';
 import Personal from './Personal';
@@ -8,9 +8,12 @@ import Education from './Education';
 import Languages from './Languages';
 import Clause from './Clause';
 import JustListSection from './Utils/JustListSection';
+import CVContext from "./CVContext"
 
 
 const CV = ({ data }) => {
+  const { enableInterests } = useContext(CVContext);
+
   return (
     <>
       <GlobalStyle />
@@ -20,7 +23,7 @@ const CV = ({ data }) => {
           <Experience experience={data.experience} />
           <Languages languages={data.languages} />
           <Education education={data.education} />
-          <JustListSection title="Interests" list={data.interests} />
+          {enableInterests && <JustListSection title="Interests" list={data.interests} />}
           <Clause />
       </Main>
     </>

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from "react"
 
 import Section from './Section';
 import List from './List';
+import CVContext from "../CVContext"
 
 
 const JustListSection = ({ title, list }) => {
@@ -11,6 +12,5 @@ const JustListSection = ({ title, list }) => {
     </Section>
   )
 }
-  
+
 export default JustListSection;
-  

@@ -65,6 +65,7 @@ const CVDashboard = ({ owner, tags, children }) => {
   const [enableBlind, toggleBlind] = useToggleState(false);
   const [enablePhoto, togglePhoto] = useToggleState(true);
   const [enableClause, toggleClause] = useToggleState(true);
+  const [enableInterests, toggleInterests] = useToggleState(true);
   const [markedTags, setMarkedTags] = useState([]);
 
   const cv = useRef();
@@ -73,7 +74,7 @@ const CVDashboard = ({ owner, tags, children }) => {
   const availableTags = mapTags(tags);
 
   return (
-    <CVContext.Provider value={{ enablePhoto, enableClause, enableBlind, markedTags }}>
+    <CVContext.Provider value={{ enablePhoto, enableInterests, enableClause, enableBlind, markedTags }}>
       <DownloadablePDF
         enableFullsize
         keepTogether={`.${keepTogether}`}
@@ -101,6 +102,9 @@ const CVDashboard = ({ owner, tags, children }) => {
         </NavButtton>
         <NavButtton onClick={togglePhoto}>
           Photo: {toOnOff(enablePhoto)}
+        </NavButtton>
+        <NavButtton onClick={toggleInterests}>
+          Interests: {toOnOff(enableInterests)}
         </NavButtton>
         <NavButtton onClick={toggleClause}>
           Clause: {toOnOff(enableClause)}
