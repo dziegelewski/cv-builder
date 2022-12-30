@@ -8,7 +8,7 @@
     "@progress/kendo-drawing": "^1.5.9",
     "@progress/kendo-react-pdf": "^2.8.0",
     "@react-pdf/renderer": "^1.4.2",
-    "gatsby": "^2.3.3",
+    "gatsby": "^2.32.13",
     "gatsby-image": "^2.0.35",
     "gatsby-plugin-manifest": "2.4.37",
     "gatsby-plugin-offline": "^2.0.25",
